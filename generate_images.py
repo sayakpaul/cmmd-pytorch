@@ -1,5 +1,5 @@
 from diffusers import DiffusionPipeline
-from concurrent.futures import ProcessPoolExecutor
+from concurrent.futures import ThreadPoolExecutor
 import argparse
 import torch
 import datasets
@@ -59,5 +59,5 @@ if __name__ == "__main__":
     if not os.path.exists(args.root_img_path):
         os.makedirs(args.root_img_path)
 
-    with ProcessPoolExecutor(max_workers=args.num_workers) as executor:
-        executor.submit(serialize_image, images, image_paths)
+    with ThreadPoolExecutor(max_workers=args.num_workers) as executor:
+        executor.map(serialize_image, images, image_paths)

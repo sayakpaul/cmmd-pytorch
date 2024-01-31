@@ -29,6 +29,14 @@ A working example command:
 python main.py reference_images generated_images --batch_size=1
 ```
 
+It should output:
+
+```bash
+The CMMD value is:  7.696
+```
+
+This is the same as the original codebase, so, that confirms the implementation correctness 🤗
+
 > [!TIP]
 > GPU execution is supported when a GPU is available.
 

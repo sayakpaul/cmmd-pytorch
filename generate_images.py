@@ -53,7 +53,7 @@ if __name__ == "__main__":
 
     dataset = load_dataset()
     pipeline = load_pipeline(args)
-    images = generate_images()
+    images = generate_images(args, dataset, pipeline)
     image_paths = [os.path.join(args.root_img_path, f"{i}.jpg") for i in range(len(images))]
 
     if not os.path.exists(args.root_img_path):

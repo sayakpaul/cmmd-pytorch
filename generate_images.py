@@ -1,8 +1,8 @@
 from diffusers import DiffusionPipeline
 from concurrent.futures import ThreadPoolExecutor
+import pandas as pd
 import argparse
 import torch
-import datasets
 import os
 
 
@@ -13,11 +13,14 @@ ALL_CKPTS = [
     "stabilityai/stable-diffusion-xl-base-1.0",
     "stabilityai/sdxl-turbo",
 ]
+SEED = 2024
 
 
-def load_dataset():
-    dataset = datasets.load_dataset("nateraw/parti-prompts", split="train")
-    return dataset
+def load_dataframe(args):
+    dataframe = pd.read_csv(
+        "https://huggingface.co/datasets/sayakpaul/sample-datasets/raw/main/coco_30k_randomly_sampled_2014_val.csv"
+    )
+    return dataframe
 
 
 def load_pipeline(args):
@@ -26,13 +29,13 @@ def load_pipeline(args):
     return pipeline
 
 
-def generate_images(args, dataset, pipeline):
+def generate_images(args, dataframe, pipeline):
     all_images = []
-    for i in range(0, len(dataset), args.chunk_size):
+    for i in range(0, len(dataframe), args.chunk_size):
         images = pipeline(
-            dataset[i : i + args.chunk_size]["Prompt"],
+            dataframe.iloc[i : i + args.chunk_size]["caption"].tolist(),
             num_inference_steps=args.num_inference_steps,
-            generator=torch.manual_seed(2024),
+            generator=torch.manual_seed(SEED),
         ).images
         all_images.extend(images)
     return all_images
@@ -51,7 +54,7 @@ if __name__ == "__main__":
     parser.add_argument("--num_workers", type=int, default=4)
     args = parser.parse_args()
 
-    dataset = load_dataset()
+    dataset = load_dataframe()
     pipeline = load_pipeline(args)
     images = generate_images(args, dataset, pipeline)
     image_paths = [os.path.join(args.root_img_path, f"{i}.jpg") for i in range(len(images))]

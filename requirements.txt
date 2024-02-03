@@ -2,3 +2,4 @@ transformers
 Pillow
 tqdm
 numpy
+absl-py

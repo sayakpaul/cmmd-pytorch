@@ -16,7 +16,7 @@ ALL_CKPTS = [
 SEED = 2024
 
 
-def load_dataframe(args):
+def load_dataframe():
     dataframe = pd.read_csv(
         "https://huggingface.co/datasets/sayakpaul/sample-datasets/raw/main/coco_30k_randomly_sampled_2014_val.csv"
     )

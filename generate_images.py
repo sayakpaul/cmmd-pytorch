@@ -32,11 +32,19 @@ def load_pipeline(args):
 def generate_images(args, dataframe, pipeline):
     all_images = []
     for i in range(0, len(dataframe), args.chunk_size):
-        images = pipeline(
-            dataframe.iloc[i : i + args.chunk_size]["caption"].tolist(),
-            num_inference_steps=args.num_inference_steps,
-            generator=torch.manual_seed(SEED),
-        ).images
+        if "sdxl-turbo" not in args.pipeline_id:
+            images = pipeline(
+                dataframe.iloc[i : i + args.chunk_size]["caption"].tolist(),
+                num_inference_steps=args.num_inference_steps,
+                generator=torch.manual_seed(SEED),
+            ).images
+        else:
+            images = pipeline(
+                dataframe.iloc[i : i + args.chunk_size]["caption"].tolist(),
+                num_inference_steps=args.num_inference_steps,
+                generator=torch.manual_seed(SEED),
+                guidance_scale=0.0,
+            ).images
         all_images.extend(images)
     return all_images
 

@@ -72,6 +72,8 @@ python main.py /path/to/reference/images /path/to/generated/images --batch_size=
 
 Reference images are COCO-30k images and can be downloaded from [here](https://huggingface.co/datasets/sayakpaul/coco-30-val-2014).
 
+Pre-computed embeddings for the COCO-30k images can be found [here](https://huggingface.co/datasets/sayakpaul/coco-30-val-2014/blob/main/ref_embs_coco_30k.npy).
+
 ## Acknowledgements
 
 Thanks to Sadeep Jayasumana (first author of CMMD) for all the helpful discussions.

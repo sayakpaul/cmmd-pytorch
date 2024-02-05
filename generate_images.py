@@ -24,7 +24,12 @@ def load_dataframe():
 
 
 def load_pipeline(args):
-    pipeline = DiffusionPipeline.from_pretrained(args.pipeline_id, torch_dtype=torch.float16).to("cuda")
+    if "runway" in args.pipeline_id:
+        pipeline = DiffusionPipeline.from_pretrained(
+            args.pipeline_id, torch_dtype=torch.float16, safety_checker=None
+        ).to("cuda")
+    else:
+        pipeline = DiffusionPipeline.from_pretrained(args.pipeline_id, torch_dtype=torch.float16).to("cuda")
     pipeline.set_progress_bar_config(disable=True)
     return pipeline
 

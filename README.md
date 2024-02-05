@@ -48,7 +48,7 @@ Below, we report the CMMD metric for some popular pipelines on the COCO-30k data
 |:------------:|:-------------------:|:--------------:|:--------:|
 |   [`stabilityai/stable-diffusion-xl-base-1.0`](https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0)   |     30     |   1024x1024  | 0.696 |
 |   [`segmind/SSD-1B`](https://huggingface.co/segmind/SSD-1B)   |     30     |   1024x1024  | 0.669 |
-|   [`stabilityai/sdxl-turbo`]   |     1     |   512x512  | 0.548 |
+|   [`stabilityai/sdxl-turbo`](https://huggingface.co/stabilityai/sdxl-turbo)   |     1     |   512x512  | 0.548 |
 |   [`runwayml/stable-diffusion-v1-5`](https://huggingface.co/runwayml/stable-diffusion-v1-5)   |     50     |   512x512  | Placeholder |
 |   [`PixArt-alpha/PixArt-XL-2-1024-MS`](https://huggingface.co/PixArt-alpha/PixArt-XL-2-1024-MS)   |     20     |   1024x1024  | Placeholder |
 

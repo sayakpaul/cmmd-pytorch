@@ -49,7 +49,7 @@ Below, we report the CMMD metric for some popular pipelines on the COCO-30k data
 |   [`stabilityai/stable-diffusion-xl-base-1.0`](https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0)   |     30     |   1024x1024  | 0.696 |
 |   [`segmind/SSD-1B`](https://huggingface.co/segmind/SSD-1B)   |     30     |   1024x1024  | 0.669 |
 |   [`stabilityai/sdxl-turbo`](https://huggingface.co/stabilityai/sdxl-turbo)   |     1     |   512x512  | 0.548 |
-|   [`runwayml/stable-diffusion-v1-5`](https://huggingface.co/runwayml/stable-diffusion-v1-5)   |     50     |   512x512  | Placeholder |
+|   [`runwayml/stable-diffusion-v1-5`](https://huggingface.co/runwayml/stable-diffusion-v1-5)   |     50     |   512x512  | 0.582 |
 |   [`PixArt-alpha/PixArt-XL-2-1024-MS`](https://huggingface.co/PixArt-alpha/PixArt-XL-2-1024-MS)   |     20     |   1024x1024  | Placeholder |
 
 **Notes**:
@@ -58,7 +58,7 @@ Below, we report the CMMD metric for some popular pipelines on the COCO-30k data
 * For all other pipelines, default `guidace_scale` was used. Refer to the official pipeline documentation pages [here](https://huggingface.co/docs/diffusers/main/en/index) for more details.
 
 > [!CAUTION]
-> As per the CMMD authors, with models producing high-quality/high-resolution images, COCO images don't seem to be a good reference set (they are of pretty small resolution). 
+> As per the CMMD authors, with models producing high-quality/high-resolution images, COCO images don't seem to be a good reference set (they are of pretty small resolution). This might help explain why SD v1.5 has a better CMMD than SDXL.
 
 ## Obtaining CMMD for your pipelines
 

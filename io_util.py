@@ -16,11 +16,9 @@
 """IO utilities."""
 
 import glob
-import embedding
 from torch.utils.data import Dataset, DataLoader
 import numpy as np
 from PIL import Image
-import tensorflow as tf
 import tqdm
 
 
